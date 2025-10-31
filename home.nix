@@ -17,6 +17,6 @@
   # User-specific settings
   home.username = "seumas";
   home.homeDirectory = "/home/seumas";
-  programs.git.userName = "piss";
-  programs.git.userEmail = "trotsky.maoism@bordiga.marx";
+  programs.git.userName = "Lantakari";
+  programs.git.userEmail = "TeimoPie@proton.me";
 }
