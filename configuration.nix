@@ -5,7 +5,7 @@
 { config, pkgs, options, lib, ... }: {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    <nix-ld/modules/nix-ld.nix>
+    # <nix-ld/modules/nix-ld.nix>
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -105,10 +105,6 @@
     [
       #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       #  wget 
-
-      # Other packages
-      # matlab
-      # More packages 
     ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -146,8 +142,19 @@
   # Enabling gnupg gpg encryption
   programs.gnupg.agent.enable = true;
 
+  # enabling virtualisation and virt-manager GUI loader
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+    plugins = with pkgs.obs-studio-plugins; [ droidcam-obs ];
+  };
+
   # Enabling nix-ld binary runner
   # The module in this repository defines a new module under (programs.nix-ld.dev) instead of (programs.nix-ld)
   # to not collide with the nixpkgs version.
-  programs.nix-ld.dev.enable = true;
+  # programs.nix-ld.dev.enable = true;
 }
+
