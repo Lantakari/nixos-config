@@ -3,3 +3,4 @@
 # nixos-user
 # nixos
 # nixos
+# nixos-config
